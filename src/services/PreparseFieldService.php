@@ -14,6 +14,7 @@ use craft\web\View;
 use craft\db\mysql\Schema;
 use DateTime;
 use yii\base\Exception;
+use yii\db\Expression;
 
 /**
  * PreparseFieldService Service
@@ -72,7 +73,7 @@ class PreparseFieldService extends Component
 	 * @return null|string|DateTime
 	 * @throws Exception
 	 */
-    public function parseField(PreparseFieldType $field, Element $element): DateTime|string|null
+    public function parseField(PreparseFieldType $field, Element $element): DateTime|Expression|string|null
 	{
         $fieldTwig = $field->fieldTwig;
         $columnType = $field->columnType;
@@ -125,6 +126,13 @@ class PreparseFieldService extends Component
                 return '';
             }
             return $date;
+        }
+
+        if ($columnType === Schema::TYPE_JSON) {
+            // If this is a JSON field, return it as an expression so it is not escaped
+            return new Expression(':json', [
+                ':json' => $fieldValue,
+            ]);
         }
 
         return $fieldValue;
