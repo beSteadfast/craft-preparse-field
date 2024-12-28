@@ -1,15 +1,12 @@
 <?php
 /**
  * Preparse Field plugin for Craft CMS 4.x
- *
- * @link      https://www.steadfastdesignfirm.com/
- * @copyright Copyright (c) Steadfast Design Firm
  */
 
-namespace besteadfast\preparsefield;
+namespace jalendport\preparse;
 
-use besteadfast\preparsefield\fields\PreparseFieldType;
-use besteadfast\preparsefield\services\PreparseFieldService as PreparseFieldServiceService;
+use jalendport\preparse\fields\PreparseFieldType;
+use jalendport\preparse\services\PreparseFieldService;
 use Craft;
 use craft\base\Element;
 use craft\base\Plugin;
@@ -29,14 +26,11 @@ use yii\base\Event;
 /**
  * Preparse field plugin
  *
- * @author    Steadfast Design Firm
- * @package   PreparseField
- * @since     1.0.0
- *
- * @property  PreparseFieldServiceService $preparseFieldService
+ * @property  PreparseFieldService $preparseFieldService
  */
 class PreparseField extends Plugin
 {
+
     /**
      * Static property that is an instance of this plugin class so that it can be accessed via
      * PreparseField::$plugin
@@ -116,7 +110,7 @@ class PreparseField extends Plugin
                 }
 
                 $key = $element->id . '__' . $element->siteId;
-                    
+
                 if (!isset($this->preparsedElements['onPropagate'][$key])) {
                     $this->preparsedElements['onPropagate'][$key] = true;
 
@@ -204,7 +198,7 @@ class PreparseField extends Plugin
     /**
      * Fix file uploads being processed twice by craft, which causes an error.
      *
-     * @see https://github.com/besteadfast/craft-preparse-field/issues/23#issuecomment-284682292
+     * @see https://github.com/jalendport/craft-preparse/issues/23#issuecomment-284682292
      */
     private function resetUploads()
     {
@@ -212,3 +206,6 @@ class PreparseField extends Plugin
         UploadedFile::reset();
     }
 }
+
+class_alias(PreparseField::class, \aelvan\preparsefield\PreparseField::class);
+class_alias(PreparseField::class, \besteadfast\preparsefield\PreparseField::class);

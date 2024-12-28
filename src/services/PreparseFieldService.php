@@ -1,14 +1,11 @@
 <?php
 /**
  * Preparse Field plugin for Craft CMS 4.x
- *
- * @link      https://www.steadfastdesignfirm.com/
- * @copyright Copyright (c) Steadfast Design Firm
  */
 
-namespace besteadfast\preparsefield\services;
+namespace jalendport\preparse\services;
 
-use besteadfast\preparsefield\fields\PreparseFieldType;
+use jalendport\preparse\fields\PreparseFieldType;
 use Craft;
 use craft\base\Component;
 use craft\base\Element;
@@ -26,10 +23,6 @@ use yii\base\Exception;
  * and other plugins can interact with.
  *
  * https://craftcms.com/docs/plugins/services
- *
- * @author    Steadfast Design Firm
- * @package   PreparseField
- * @since     1.0.0
  */
 class PreparseFieldService extends Component
 {
@@ -69,7 +62,7 @@ class PreparseFieldService extends Component
 
         return $content;
     }
-	
+
 	/**
 	 * Parses field for a given element.
 	 *
@@ -163,3 +156,6 @@ class PreparseFieldService extends Component
         return false;
     }
 }
+
+class_alias(PreparseFieldService::class, \aelvan\preparsefield\services\PreparseFieldService::class);
+class_alias(PreparseFieldService::class, \besteadfast\preparsefield\services\PreparseFieldService::class);

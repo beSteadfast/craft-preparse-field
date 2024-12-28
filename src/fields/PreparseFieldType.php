@@ -1,12 +1,9 @@
 <?php
 /**
  * Preparse Field plugin for Craft CMS 4.x
- *
- * @link      https://www.steadfastdesignfirm.com/
- * @copyright Copyright (c) Steadfast Design Firm
  */
 
-namespace besteadfast\preparsefield\fields;
+namespace jalendport\preparse\fields;
 
 use Craft;
 use craft\base\ElementInterface;
@@ -28,11 +25,7 @@ use yii\base\Exception;
 use yii\base\InvalidConfigException;
 
 /**
- *  Preparse field type
- *
- * @author    Steadfast Design Firm
- * @package   PreparseField
- * @since     1.0.0
+ * Preparse field type
  *
  * @property string $contentColumnType
  * @property null|string $settingsHtml
@@ -245,3 +238,6 @@ class PreparseFieldType extends Field implements PreviewableFieldInterface, Sort
         return parent::getContentGqlType();
     }
 }
+
+class_alias(PreparseFieldType::class, \aelvan\preparsefield\fields\PreparseFieldType::class);
+class_alias(PreparseFieldType::class, \besteadfast\preparsefield\fields\PreparseFieldType::class);

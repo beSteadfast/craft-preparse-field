@@ -16,7 +16,7 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require besteadfast/craft-preparse-field
+        composer require jalendport/craft-preparse
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Preparse Field.
 
@@ -77,4 +77,4 @@ The plugin is released under the MIT license, meaning you can do whatever you wa
 
 ## Changelog
 
-See the [changelog file](https://github.com/besteadfast/craft-preparse-field/blob/master/CHANGELOG.md).
+See the [changelog file](https://github.com/jalendport/craft-preparse/blob/master/CHANGELOG.md).
