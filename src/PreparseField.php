@@ -124,7 +124,7 @@ class PreparseField extends Plugin
                         }
 
                         $element->setFieldValues($content);
-                        $success = Craft::$app->elements->saveElement($element, true, false);
+                        $success = Craft::$app->elements->saveElement($element, true, true);
 
                         // if no success, log error
                         if (!$success) {
